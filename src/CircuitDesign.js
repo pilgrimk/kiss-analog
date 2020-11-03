@@ -2,7 +2,7 @@ import React from 'react';
 
 function CircuitDesign(){
     return(
-        <div>
+        <div className="myContent">
           <h1>Circuit Design</h1>
         </div>
       )

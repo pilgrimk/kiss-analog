@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Head from './Head';
 import Navigation from './Navigation';
 import Home from './Home';
 import CircuitDesign from './CircuitDesign';
@@ -7,6 +8,7 @@ import EquipmentReviews from './EquipmentReviews';
 import KissU from './KissU';
 import Channel from './Channel';
 import Blog from './Blog';
+import Footer from './Footer';
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,7 +19,8 @@ import {
 function App() {
   return (
     <Router>
-      <div classname="App">
+      <div className="App">
+        <Head />
         <Navigation />
 
         <Switch>
@@ -43,6 +46,8 @@ function App() {
             <NoMatch />
           </Route>
         </Switch>
+
+        <Footer />
       </div>
     </Router>
   );

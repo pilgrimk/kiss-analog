@@ -2,7 +2,7 @@ import React from 'react';
 
 function KissU(){
     return(
-        <div>
+        <div className="myContent">
           <h1>Kiss University</h1>
         </div>
       )

@@ -2,7 +2,7 @@ import React from 'react';
 
 function Channel(){
     return(
-        <div>
+        <div className="myContent">
           <h1>Channel</h1>
         </div>
       )

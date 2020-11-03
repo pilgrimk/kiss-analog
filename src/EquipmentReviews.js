@@ -2,7 +2,7 @@ import React from 'react';
 
 function EquipmentReviews(){
     return(
-        <div>
+        <div className="myContent">
           <h1>Equipment Reviews</h1>
         </div>
       )
