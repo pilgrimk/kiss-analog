@@ -1,15 +1,15 @@
 import React from 'react';
 import './App.css';
-import Head from './Head';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navigation from './Navigation';
-import Home from './Home';
-import CircuitDesign from './CircuitDesign';
-import EquipmentReviews from './EquipmentReviews';
-import KissU from './KissU';
-import Channel from './Channel';
-import Blog from './Blog';
-import Footer from './Footer';
+import Head from './Components/Head';
+import Navigation from './Components/Navigation';
+import Home from './Components/Home';
+import CircuitDesign from './Components/CircuitDesign';
+import EquipmentReviews from './Components/EquipmentReviews';
+import KissU from './Components/KissU';
+import Channel from './Components/Channel';
+import Blog from './Components/Blog';
+import Footer from './Components/Footer';
 import {
   BrowserRouter as Router,
   Switch,
@@ -24,7 +24,7 @@ function App() {
         <Navigation />
 
         <Switch>
-          <Route exact path="/">
+        <Route exact path="/">
             <Home />
           </Route>
           <Route path="/home">
