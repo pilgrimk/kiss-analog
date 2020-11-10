@@ -1,44 +1,21 @@
 .App {
   text-align: center;
-  background-color: rgb(237, 240, 218);
+  background-color: rgb(205, 209, 212);
 }
 
-.nav {
-  display: flex;
-  width: 95%;
-  justify-content: space-between;
-  margin: 10px;
-  padding: 10px;
-}
-
-.nav_right>ul {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.nav_right>ul>li {
-  list-style: none;
-  text-decoration: none;
-  background: #000;
-  text-align: center;
-  color: white;
-  width: 20%;
-  border-left: 1px solid #999;
-  border-top: 1px solid #999;
-  border-bottom: 1px solid #333;
-  border-right: 1px solid #333;
-}
-
-.nav_right>ul>li:hover {
-  background: #aaa;
-}
 
 .myContent {
   margin: 20px;
   padding: 20px;
+  
 }
 
 .myContent>iframe {
   height: 500px;
   width: 750px 
+}
+
+.footer {
+  background: black;
+  color: white;
 }

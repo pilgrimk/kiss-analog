@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Head from './Head';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from './Navigation';
 import Home from './Home';
 import CircuitDesign from './CircuitDesign';
@@ -12,8 +13,7 @@ import Footer from './Footer';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'
 
 function App() {
@@ -27,19 +27,22 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/circuit-design">
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/circuit-design">
             <CircuitDesign />
           </Route>
-          <Route exact path="/equipment-reviews">
+          <Route path="/equipment-reviews">
             <EquipmentReviews />
           </Route>
-          <Route exact path="/kiss-u">
+          <Route path="/kiss-u">
             <KissU />
           </Route>
-          <Route exact path="/channel">
+          <Route path="/channel">
             <Channel />
           </Route>
-          <Route exact path="/blog">
+          <Route path="/blog">
             <Blog />
           </Route>
           <Route path="*">
