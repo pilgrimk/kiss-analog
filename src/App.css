@@ -3,7 +3,6 @@
   background-color: rgb(205, 209, 212);
 }
 
-
 .myContent {
   margin: 20px;
   padding: 20px;
@@ -12,7 +11,10 @@
 
 .myContent>iframe {
   height: 500px;
-  width: 750px 
+  width: 750px;
+  aspect-ratio: attr(width) / attr(height);
+  width: 50em;
+  height: 30em;
 }
 
 .footer {
