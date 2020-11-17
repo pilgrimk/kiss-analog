@@ -6,7 +6,8 @@
 .myContent {
   margin: 20px;
   padding: 20px;
-  
+  color: white;
+  background: url('./img/circuit.jpg');
 }
 
 .myContent>iframe {

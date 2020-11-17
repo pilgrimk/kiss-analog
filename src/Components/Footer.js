@@ -3,7 +3,7 @@ import React from 'react';
 function Footer(){
     return(
         <div className="footer">
-            <h1>Footer information</h1>
+            <span>&copy; Kiss Analog. All rights reserved.</span>
         </div>
       )
 }

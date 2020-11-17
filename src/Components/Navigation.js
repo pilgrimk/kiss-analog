@@ -6,7 +6,7 @@ function Navigation() {
     return (
         <div className="nav">
             <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
-                <Navbar.Brand>KISS<img class="sine" src="favicon.ico"></img>Analog</Navbar.Brand>
+                <Navbar.Brand>KISS<img class="sine" src="favicon.ico" alt="sine wave"></img>Analog</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">

@@ -9,6 +9,7 @@ import EquipmentReviews from './Components/EquipmentReviews';
 import KissU from './Components/KissU';
 import Channel from './Components/Channel';
 import Blog from './Components/Blog';
+import BottomCards from './Components/BottomCards';
 import Footer from './Components/Footer';
 import {
   BrowserRouter as Router,
@@ -50,6 +51,7 @@ function App() {
           </Route>
         </Switch>
 
+        <BottomCards />
         <Footer />
       </div>
     </Router>
