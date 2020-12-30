@@ -1,6 +1,10 @@
 .App {
   text-align: center;
-  background-color: rgb(205, 209, 212);
+  background-color:whitesmoke;
+}
+
+.navbar {
+  width: 100%;
 }
 
 .myContent {
@@ -8,6 +12,8 @@
   padding: 20px;
   color: white;
   background: url('./img/circuit.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .myContent>iframe {
@@ -19,6 +25,8 @@
 }
 
 .footer {
+  margin: 10px 0px 0px 0px;
+  padding: 10px;
   background: black;
   color: white;
 }

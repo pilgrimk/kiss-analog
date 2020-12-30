@@ -7,7 +7,6 @@ import Home from './Components/Home';
 import CircuitDesign from './Components/CircuitDesign';
 import EquipmentReviews from './Components/EquipmentReviews';
 import KissU from './Components/KissU';
-import Channel from './Components/Channel';
 import Blog from './Components/Blog';
 import BottomCards from './Components/BottomCards';
 import Footer from './Components/Footer';
@@ -39,9 +38,6 @@ function App() {
           </Route>
           <Route path="/kiss-u">
             <KissU />
-          </Route>
-          <Route path="/channel">
-            <Channel />
           </Route>
           <Route path="/blog">
             <Blog />

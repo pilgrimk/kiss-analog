@@ -14,7 +14,6 @@ function Navigation() {
                         <Nav.Link href="circuit-design">Circuit Design</Nav.Link>
                         <Nav.Link href="equipment-reviews">Equipment Reviews</Nav.Link>
                         <Nav.Link href="kiss-u">Kiss U</Nav.Link>
-                        <Nav.Link href="channel">Channel</Nav.Link>
                         <Nav.Link href="blog">Blog</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
