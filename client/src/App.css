@@ -32,18 +32,6 @@
   height: undefined;
 }
 
-.bottom-cards {
-  margin: 20px 0px 0px 0px; 
-}
-
-.footer {
-  margin: 20px 0px 0px 20px;
-  width: 100%;
-  background: black;
-  color: white;
-  text-align: center;
-}
-
 @media(max-width:600px) {
   .iframe-container {
     position: relative;
