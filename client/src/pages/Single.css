@@ -1,0 +1,12 @@
+.single-wrapper {
+    display: flex;
+    align-items: row;
+  }
+
+  @media(max-width:600px) {
+    .single-wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  }

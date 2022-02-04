@@ -1,0 +1,20 @@
+.blogs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.blog-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+@media(max-width:600px) {
+    .blog-wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  }
