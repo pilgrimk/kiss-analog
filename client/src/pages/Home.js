@@ -12,7 +12,7 @@ export default function Home() {
         <section className='home'>
             <Header title={header_title} />
             <div className='iframe-container'>
-                <iframe allowfullscreen='' title='home screen video' frameborder='0'
+                <iframe allowFullScreen='' title='home screen video' frameBorder='0'
                     src={iframe_src}
                     allow='accelerometer; encrypted-media; gyroscope; picture-in-picture' ></iframe>
             </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Post.css';
 import img_src_value from '../img/pexels-ksenia-chernaya-5691583.jpg';
 
@@ -11,7 +12,7 @@ export default function Post() {
                     <span className="post-cat">Music</span>
                     <span className="post-cat">Life</span>
                 </div>
-                <span className="post-title">Similique ratione quia nam</span>
+                <Link className='link post-title' to='/post/1'>Similique ratione quia nam</Link>
                 <hr />
                 <span className="post-date">1 hour ago</span>
             </div>

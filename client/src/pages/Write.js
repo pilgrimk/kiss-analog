@@ -14,7 +14,7 @@ export default function Write() {
             <form className="write-form">
                 <div className="write-form-group">
                     <label htmlFor='fileInput'>
-                        <i class="write-icon fas fa-plus"></i>
+                        <i className="write-icon fas fa-plus"></i>
                     </label>
                     <input type="file" id="fileInput" style={{ display: "none" }} />
                     <input type="text" placeholder="Title" className="write-input" autoFocus={true} />

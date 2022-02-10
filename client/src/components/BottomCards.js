@@ -42,8 +42,8 @@ function BottomCards() {
                                     Mobile: (801) 651-1928<br></br>
                                     Email: eddieaho@gmail.com<br></br>
                                 </Card.Text>
-                                <Card.Link href="https://www.facebook.com/eddieaho"><i class="bottom-card-icon fab fa-facebook-square"></i></Card.Link>
-                                <Card.Link href="https://www.youtube.com/channel/UCD5GUs2SVXDaqDo6WMtdsqw"><i class="bottom-card-icon fab fa-youtube-square"></i></Card.Link>
+                                <Card.Link href="https://www.facebook.com/eddieaho"><i className="bottom-card-icon fab fa-facebook-square"></i></Card.Link>
+                                <Card.Link href="https://www.youtube.com/channel/UCD5GUs2SVXDaqDo6WMtdsqw"><i className="bottom-card-icon fab fa-youtube-square"></i></Card.Link>
                             </Card.Body>
                         </Card>
                     </Col>
