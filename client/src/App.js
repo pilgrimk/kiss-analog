@@ -1,6 +1,6 @@
+import React , { useContext } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import Head from './components/Head';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -12,18 +12,10 @@ import Settings from './pages/Settings';
 import Login from './pages/Login'
 import Register from './pages/Register'
 import NotFound from './pages/NotFound';
+import { Context } from './context/Context';
 
 function App() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const u = localStorage.getItem("user");
-    u && JSON.parse(u) ? setUser(true) : setUser(true);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("user", user);
-  }, [user]);
+  const { user } = useContext(Context);
 
   return (
     <Router>
@@ -35,10 +27,10 @@ function App() {
           <Route path='/' exact element={<Home />} />
           <Route path='/circuit-design' element={<CircuitDesign />} />
           <Route path='/blog' element={<Blogs />} />
+          <Route path='/login' element={<Login />} />
 
-          {user && (
+          {!user && (
             <>
-              <Route path='/login' element={<Login authenticate={() => setUser(true)} />} />
               <Route path='/register' element={<Register />} />
             </>
           )}

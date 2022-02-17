@@ -56,3 +56,8 @@
     border-radius: 10px;
     cursor: pointer;
 }
+
+.error-message {
+    color: red;
+    margin-top: 20px;
+}

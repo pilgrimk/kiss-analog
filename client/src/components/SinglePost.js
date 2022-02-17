@@ -1,47 +1,109 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
+import { Context } from '../context/Context';
+import axios from 'axios';
 import './SinglePost.css';
 import img_src_value from '../img/pexels-pixabay-414860.jpg';
 
 export default function SinglePost() {
+  const [post, setPost] = useState({});
+  const location = useLocation();
+  const path = location.pathname.split("/")[2];
+  const PF = "http://localhost:5000/images/";
+  const { user } = useContext(Context);
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
+  const [updateMode, setUpdateMode] = useState(false);
+
+  useEffect(() => {
+    const getPost = async () => {
+      const res = await axios.get("/posts/" + path);
+      setPost(res.data);
+      setTitle(res.data.title);
+      setDesc(res.data.desc);
+    }
+    getPost();
+  }, [path]);
+
+  const handleDelete = async () => {
+    try {
+      await axios.delete("/posts/" + path, { data: { username: user.username } });
+      window.location.replace("/");
+    }
+    catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleUpdate = async () => {
+    try {
+      await axios.put("/posts/" + path,
+        {
+          username: user.username,
+          title: title,
+          desc: desc,
+        }
+      );
+      setUpdateMode(false);
+    }
+    catch (err) {
+      console.log(err);
+    }
+  };
+
+  //console.log(`SinglePost URL: ${PF + post.photo}`);
+
   return (
     <div className="single-post">
       <div className="single-post-wrapper">
-        <img
-          className="single-post-img"
-          src={img_src_value}
-          alt=""
-        />
-        <h1 className="single-post-title">
-          Similique ratione quia nam aspernatur
-          <div className="single-post-edit">
-            <i className="single-post-icon far fa-edit"></i>
-            <i className="single-post-icon far fa-trash-alt"></i>
-          </div>
-        </h1>
+        {post.photo ? (
+          <img className="single-post-img" src={PF + post.photo} alt=""></img>
+        ) : (
+          <img className="single-post-img" src={img_src_value} alt=""></img>
+        )}{
+          updateMode ? <input
+            type="text"
+            value={title}
+            className="single-post-title-input"
+            autoFocus
+            onChange={(e) => setTitle(e.target.value)} /> : (
+
+            <h1 className="single-post-title">
+              {title}
+              {post.username === user?.username && (
+                <div className="single-post-edit">
+                  <i className="single-post-icon far fa-edit" onClick={() => setUpdateMode(true)}></i>
+                  <i className="single-post-icon far fa-trash-alt" onClick={handleDelete}></i>
+                </div>
+              )}
+            </h1>
+          )
+        }
       </div>
       <div className="single-post-info">
-        <span className="single-post-author">Author: <b>KevinP</b></span>
-        <span className="single-post-date">1 hour ago</span>
+        <span className="single-post-author">
+          Author:
+          <Link to={`/blog/?user=${post.username}`} className="link">
+            <b>{post.username}</b>
+          </Link>
+        </span>
+        <span className="single-post-date">{new Date(post.createdAt).toDateString()}</span>
       </div>
-      <p className="single-post-desc">
-        Pariatur, architecto libero incidunt, sunt cupiditate ea eum temporibus maiores voluptatum adipisci autem?
-        Impedit eos similique reprehenderit nam, rerum repellendus eligendi sapiente. Ipsa nam molestias explicabo
-        possimus. Blanditiis suscipit, sed nostrum nulla corrupti iste reprehenderit autem. Aspernatur labore
-        quidem ducimus delectus aperiam nihil aliquam, in sint atque eaque fugit facere ut voluptatem, fugiat,
-        iure deserunt mollitia laborum repudiandae. Delectus nulla, unde vel ab in accusantium obcaecati placeat
-        beatae, veritatis suscipit, ut alias culpa. Pariatur consequatur voluptatibus repellat magnam, aut
-        voluptatum ipsum amet laborum incidunt totam eos id repellendus enim possimus sed suscipit quisquam!
-
-        Illum consectetur fugit eius eaque dolorem, quaerat nam ex alias id, aspernatur ullam consequuntur impedit
-        numquam facere sapiente doloremque assumenda qui iste quasi laborum et dolor molestias repellat!
-        Exercitationem vel sint temporibus quisquam accusamus. Tenetur maiores voluptas doloremque assumenda libero,
-        consequuntur nisi illo dolorum quae officia! Incidunt, dolore.
-
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, aliquam laboriosam! Eum, explicabo eos error
-        quod debitis laborum molestias deserunt reiciendis. Ipsa eaque ea natus nobis magnam blanditiis fugit,
-        distinctio sit facilis debitis quas recusandae harum, praesentium quos deleniti officiis hic id! Unde
-        numquam dolor vitae beatae saepe fuga labore, assumenda et nihil natus rem quae consequuntur facilis?
-      </p>
+      {updateMode ? (<textarea
+        className="single-post-desc-input"
+        value={desc}
+        onChange={(e) => setDesc(e.target.value)} />
+      ) : (
+        <p className="single-post-desc">
+          {desc}
+        </p>
+      )}
+      {updateMode && (
+        <button
+          className="single-post-button"
+          onClick={handleUpdate}>Update</button>
+      )}
     </div>
   );
 }
