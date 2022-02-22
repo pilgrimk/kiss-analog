@@ -27,6 +27,7 @@ function App() {
           <Route path='/' exact element={<Home />} />
           <Route path='/circuit-design' element={<CircuitDesign />} />
           <Route path='/blog' element={<Blogs />} />
+          <Route path='/post/:postId' element={<Single />} />
           <Route path='/login' element={<Login />} />
 
           {!user && (
@@ -37,7 +38,6 @@ function App() {
           {user && (
             <>
               <Route path='/write' element={<Write />} />
-              <Route path='/post/:postId' element={<Single />} />
               <Route path='/settings' element={<Settings />} />
             </>
           )}

@@ -2,6 +2,10 @@
   "name": "kiss-api",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": "16.x",
+    "npm": "8.3.0"
+  },
   "scripts": {
     "start": "nodemon index.js"
   },

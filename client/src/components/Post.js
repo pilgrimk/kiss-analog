@@ -4,8 +4,7 @@ import './Post.css';
 import img_src_value from '../img/pexels-pixabay-414860.jpg';
 
 export default function Post({post}) {
-    // fix this !! don't want it hard coded !
-    const PF = "http://localhost:5000/images/";
+    const PF = `${process.env.REACT_APP_API_URL}/images/`;
 
     console.log(`Post URL: ${PF + post.photo}`);
 
