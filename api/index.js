@@ -21,9 +21,6 @@ app.use(helmet());
 app.use(morgan("common"));
 app.use('/images', express.static(path.join(__dirname, '/images')));
 app.use(cors({origin : `${process.env.CORS_ORIGIN}`}));
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, 'build')));
-}
 
 mongoose.connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
@@ -49,11 +46,6 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
-
-app.get('*', (req, res) => {
-    const index = path.join(__dirname, 'build', 'index.html');
-    res.sendFile(index);
-  });
 
 app.listen(port, () => {
     console.log(`Server is listening on PORT: ${port}`)
