@@ -22,7 +22,7 @@ app.use(morgan("common"));
 app.use('/images', express.static(path.join(__dirname, '/images')));
 app.use(cors({origin : `${process.env.CORS_ORIGIN}`}));
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'));
+    app.use(express.static(path.join(__dirname, 'build')));
 }
 
 mongoose.connect(process.env.MONGODB_URL, {
