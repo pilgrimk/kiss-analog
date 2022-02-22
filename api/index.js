@@ -63,7 +63,7 @@ app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 
 app.get('*', function (req, res) {
-const index = path.join(__dirname, 'build', 'index.html');
+const index = path.join(__dirname, 'build', 'index.js');
 res.sendFile(index);
 });  
 
