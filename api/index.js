@@ -11,7 +11,7 @@ const userRoute = require("./routes/users");
 const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
 const path = require("path");
-const port = process.env.port || 5000;
+const port = process.env.PORT || 5000;
 
 // middleware
 dotenv.config();
