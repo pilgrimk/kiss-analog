@@ -21,21 +21,9 @@ app.use(helmet());
 app.use(morgan("common"));
 app.use('/images', express.static(path.join(__dirname, '/images')));
 app.use(cors({origin : `${process.env.CORS_ORIGIN}`}));
-/*app.use(function (req, res, next) 
-{
-      res.header("Access-Control-Allow-Origin", "");
-      res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-      res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, X-CallbackType, Content-Type, Accept");
-      res.header("Cache-Control", "no-cache");
-      if ("OPTIONS" == req.method) 
-      {
-          res.send(200);
-      }
-      else 
-     {
-       next();
-     }
-});*/
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+}
 
 mongoose.connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
@@ -62,11 +50,10 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 
-app.get('*', function (req, res) {
-const index = path.join(__dirname, 'build', 'index.js');
-res.sendFile(index);
-});  
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './client/build/index.html'));
+  });
 
 app.listen(port, () => {
-    console.log("Server is listening!")
+    console.log(`Server is listening on PORT: ${port}`)
 })
