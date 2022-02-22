@@ -5,7 +5,8 @@ import './Logout.css'
 function Logout() {
   const { dispatch } = useContext(Context);
 
-  const handleLogout = () => {
+  const handleLogout = (e) => {
+    e.preventDefault();
     dispatch({ type: "LOGOUT" });
 
     // navigate to the HOME screen

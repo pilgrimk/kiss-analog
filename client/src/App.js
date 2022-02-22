@@ -26,7 +26,7 @@ function App() {
         <Routes>
           <Route path='/' exact element={<Home />} />
           <Route path='/circuit-design' element={<CircuitDesign />} />
-          <Route path='/blog' element={<Blogs />} />
+          <Route path='/blogs' element={<Blogs />} />
           <Route path='/post/:postId' element={<Single />} />
           <Route path='/login' element={<Login />} />
 

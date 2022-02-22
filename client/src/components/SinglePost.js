@@ -18,7 +18,7 @@ export default function SinglePost() {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get("/posts/" + path);
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/posts/` + path);
       setPost(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
@@ -28,8 +28,8 @@ export default function SinglePost() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete("/posts/" + path, { data: { username: user.username } });
-      window.location.replace("/");
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/posts/` + path, { data: { username: user.username } });
+      window.location.replace("/blogs");
     }
     catch (err) {
       console.log(err);
@@ -38,7 +38,7 @@ export default function SinglePost() {
 
   const handleUpdate = async () => {
     try {
-      await axios.put("/posts/" + path,
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/posts/` + path,
         {
           username: user.username,
           title: title,
@@ -51,8 +51,6 @@ export default function SinglePost() {
       console.log(err);
     }
   };
-
-  //console.log(`SinglePost URL: ${PF + post.photo}`);
 
   return (
     <div className="single-post">
