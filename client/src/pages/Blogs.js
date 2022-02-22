@@ -16,9 +16,10 @@ export default function Blog() {
 
     useEffect(()=>{
         const fetchPosts = async () => {
-            const res = await axios.get("/posts" + search);
+            const url = `${process.env.REACT_APP_API_URL}/api/posts`;
+            console.log(`Blogs: URL = ${url}`);
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/posts` + search);
             setPosts(res.data);
-            //console.log(`Inside BLOG code, posts: ${posts}`);
         };
         fetchPosts();
     }, [search]);
