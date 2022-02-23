@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Register.css';
 
@@ -8,6 +8,7 @@ export default function Register() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         // prevent default refresh of the page
@@ -23,7 +24,7 @@ export default function Register() {
                 }
             );
 
-            res.data && window.location.replace("/login");
+            res.data && navigate("/login");
         }
         catch (err) {
             console.log(err);

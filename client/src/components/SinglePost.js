@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useLocation } from 'react-router';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Context } from '../context/Context';
 import axios from 'axios';
 import './SinglePost.css';
@@ -8,13 +8,14 @@ import img_src_value from '../img/pexels-pixabay-414860.jpg';
 
 export default function SinglePost() {
   const [post, setPost] = useState({});
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
+  const [updateMode, setUpdateMode] = useState(false);
+  const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const PF = `${process.env.REACT_APP_API_URL}/images/`;
   const { user } = useContext(Context);
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
-  const [updateMode, setUpdateMode] = useState(false);
 
   useEffect(() => {
     const getPost = async () => {
@@ -29,7 +30,7 @@ export default function SinglePost() {
   const handleDelete = async () => {
     try {
       await axios.delete(`${process.env.REACT_APP_API_URL}/api/posts/` + path, { data: { username: user.username } });
-      window.location.replace("/blogs");
+      navigate("/blogs");
     }
     catch (err) {
       console.log(err);

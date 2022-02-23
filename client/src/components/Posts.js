@@ -5,9 +5,9 @@ import './Posts.css';
 export default function Posts({posts}) {
     //console.log(`Inside POSTS code, props: ${posts}`);
     return (
-        <div className="posts" key={posts._id}>
+        <div className="posts">
             {posts.map((p)=>(
-                <Post post= {p} />
+                <Post key={p._id} post={p} />
             ))}
         </div>
     );

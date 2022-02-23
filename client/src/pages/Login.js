@@ -1,5 +1,5 @@
 import React, { useRef, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Context } from '../context/Context';
 import './Login.css';
@@ -8,6 +8,7 @@ export default function Login() {
     const userRef = useRef();
     const passwordRef = useRef();
     const { dispatch, isFetching } = useContext(Context);
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         // prevent default refresh of the page
@@ -22,7 +23,7 @@ export default function Login() {
             dispatch({type:"LOGIN_SUCCESS", payload: res.data});
 
             // navigate to the HOME screen
-            window.location.replace("/");
+            navigate("/");
         }
         catch(err){
             console.log(err);
