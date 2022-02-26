@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { FiAlignRight, FiXCircle, FiChevronDown } from "react-icons/fi";
 import { Context } from '../context/Context';
 import './Navbar.css'
@@ -47,7 +47,7 @@ function Navbar() {
 
                     {/* Add Logo  */}
                     <div className="header_middle_logo">
-                        <NavLink exact activeClassName='is-active' to="/">
+                        <NavLink to="/">
                             Kiss Analog
                         </NavLink>
                     </div>
@@ -73,25 +73,22 @@ function Navbar() {
 
                             <ul className={boxClass.join(' ')}>
                                 <li className="menu-item" >
-                                    <NavLink exact activeClassName='is-active'
-                                        onClick={toggleClass} to={`/`}> Home
+                                    <NavLink onClick={toggleClass} to={`/`}> Home
                                     </NavLink>
                                 </li>
                                 <li onClick={toggleSubmenu}
                                     className="menu-item sub__menus__arrows" >
-                                    <Link to="#"> Blogs
+                                    <NavLink to="#"> Blogs
                                         <FiChevronDown />
-                                    </Link>
+                                    </NavLink>
                                     <ul className={boxClassSubMenu.join(' ')} >
                                         <li>
                                             <NavLink onClick={toggleClass}
-                                                activeClassName='is-active'
                                                 to={`/blogs`}> Blog Posts
                                             </NavLink>
                                         </li>
                                         {user && (
                                             <li><NavLink onClick={toggleClass}
-                                                activeClassName='is-active'
                                                 to={`/write`}> Write
                                             </NavLink>
                                             </li>
@@ -101,7 +98,6 @@ function Navbar() {
                                 {user && (
                                     <li className="menu-item " >
                                         <NavLink onClick={toggleClass}
-                                            activeClassName='is-active'
                                             to={`/settings`}> Settings
                                         </NavLink>
                                     </li>
@@ -109,14 +105,12 @@ function Navbar() {
                                 {!user ? (
                                     <li className="menu-item" >
                                         <NavLink onClick={toggleClass}
-                                            activeClassName='is-active'
                                             to={`/login`}> Login
                                         </NavLink>
                                     </li>
                                 ) : (
                                     <li className="menu-item">
                                         <NavLink onClick={handleLogOut}
-                                            activeClassName='is-active'
                                             to={`/`}> Logout
                                         </NavLink>
                                     </li>
