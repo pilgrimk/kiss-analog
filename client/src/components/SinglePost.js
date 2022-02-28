@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Context } from '../context/Context';
 import axios from 'axios';
 import './SinglePost.css';
-import img_src_value from '../img/pexels-pixabay-414860.jpg';
+import img_src_value from '../img/default_blog_pic.jpg';
 
 export default function SinglePost() {
   const [post, setPost] = useState({});

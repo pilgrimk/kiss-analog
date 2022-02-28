@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Context } from '../context/Context';
 import './Write.css';
-import img_src_value from '../img/pexels-vanessa-loring-7869236.jpg'
+import img_src_value from '../img/default_blog_pic.jpg'
 
 export default function Write() {
     const [title, setTitle] = useState("");
@@ -28,9 +28,9 @@ export default function Write() {
             newPost.photo = filename;
 
             try {
-                await axios.post(`${process.env.REACT_APP_API_URL}/api/upload`, data);
+                await axios.post(`${process.env.REACT_APP_API_URL}/api/files/upload`, data);
             }
-            catch (err) { };
+            catch (err) { console.log(err) };
         };
         try {
             const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/posts`, newPost);

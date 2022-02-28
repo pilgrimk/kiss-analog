@@ -11,7 +11,7 @@ export default function Settings() {
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState(false);
   const { user, dispatch } = useContext(Context);
-  const PF = "http://localhost:5000/images/";
+  const PF = `${process.env.REACT_APP_API_URL}/images/`;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ export default function Settings() {
       updatedUser.profilePic = filename;
 
       try {
-        await axios.post(`${process.env.REACT_APP_API_URL}/api/upload`, data);
+        await axios.post(`${process.env.REACT_APP_API_URL}/api/files/upload`, data);
       }
       catch (err) {};
     };

@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Post.css';
-import img_src_value from '../img/pexels-pixabay-414860.jpg';
+import img_src_value from '../img/default_blog_pic.jpg';
 
 export default function Post({ post }) {
     const PF = `${process.env.REACT_APP_API_URL}/images/`;
-
-    console.log(`Post URL: ${PF + post.photo}`);
+    //console.log(`Post URL: ${PF + post.photo}`);
 
     return (
         <div className="post">
