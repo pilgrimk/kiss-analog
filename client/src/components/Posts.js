@@ -17,11 +17,13 @@ export default function Posts({ posts }) {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
-        <div>
-            <div className="posts">
-                {currentPosts.map((p) => (
-                    <Post key={p._id} post={p} />
-                ))}
+        <div className="posts-wrapper">
+            <div className="posts-container">
+                <div className="posts">
+                    {currentPosts.map((p) => (
+                        <Post key={p._id} post={p} />
+                    ))}
+                </div>
             </div>
             <Pagination
                 postsPerPage={postsPerPage}

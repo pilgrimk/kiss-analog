@@ -1,5 +1,13 @@
-.posts {
+.posts-wrapper{
     flex: 9;
+    flex-direction: column;
+}
+
+.posts-container{
+    display: flex;
+}
+
+.posts {
     display: flex;
     flex-wrap: wrap;
     margin: 20px;
