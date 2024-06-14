@@ -3,7 +3,7 @@ import axios from 'axios';
 const api = {
   fetchPosts: async function () {
     const urlString = `${import.meta.env.VITE_APP_API}api/posts`;
-    //console.log(urlString);
+    // console.log(urlString);
 
     const response = await axios.get(urlString);
       var data_1 = response.data.map(function (element) {
