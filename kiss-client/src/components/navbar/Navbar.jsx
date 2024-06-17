@@ -11,18 +11,12 @@ const Navbar = () => {
 
   const toggleClick = () => setClick(!click);
 
-  const handleClick = (anchor) => {
-    setClick(false);
-  };
-
   const popup =
     <div className='lg:hidden block absolute top-16 w-full
   z-50 left-0 right-0 bg-accent-dark-500 transition'>
       <ul className='text-center text-xl p-20'>
         {data.navlinks.map((navlink) => (
           <Link
-            // spy={true}
-            // smooth={true}
             to={navlink.link_to}
             key={shortid.generate()}>
             <li className='my-4 py-4 border-b 
@@ -56,7 +50,7 @@ const Navbar = () => {
       <div className='h-10vh flex justify-between text-white
       lg:py-5 py-4 px-20 border-accent-dark-800'>
         <div className='flex items-center flex-1'>
-        <img src='/favicon-32x32.png' className="size-8" />
+          <img src='/favicon-32x32.png' className="size-8" />
           <span className='text-3xl font-bold ml-8 text-white font-sans'>
             {(windowWidth > 600) ? `${data.contactUs.name_long} ` : `${data.contactUs.name_short}`}
           </span>
@@ -66,16 +60,12 @@ const Navbar = () => {
             <ul className='flex gap-8 mr-16 text-[18px]'>
               {data.navlinks.map((navlink) => (
                 <Link
-                  // spy={true}
-                  // smooth={true}
                   to={navlink.link_to}
                   key={shortid.generate()}
                 >
                   <li className='hover:text-black hover:border-b-2 
                   hover:border-accent-dark-600                  
-                  transition cursor-pointer font-serif pt-2'
-                    onClick={() => handleClick(`${navlink.link_to}`)}
-                  >
+                  transition cursor-pointer font-serif'>
                     {navlink.link_title}
                   </li>
                 </Link>
