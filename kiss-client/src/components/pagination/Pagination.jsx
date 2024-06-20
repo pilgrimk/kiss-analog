@@ -14,17 +14,30 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
         paginate(number);
     };
 
-    const PageDown = () => { 
+    const PageDown = () => {
         if ((pageNumbers.length > 0) && (selectedNumber > 1)) {
             setNumberAndPaginage(selectedNumber - 1);
         };
     };
 
-    const PageUp = () => { 
+    const PageUp = () => {
         if ((pageNumbers.length > 0) && (selectedNumber < pageNumbers.length)) {
             setNumberAndPaginage(selectedNumber + 1);
         };
     };
+
+    const getButtonClassName = (number) => {
+        const flexDirectives = "hover:bg-accent-dark-500 hover:text-white p-4 rounded-lg";
+        const selectedFlexDirective = "bg-accent-light-500 ";
+
+        // console.log(`getButtonClassName, number: ${number}, selectedNumber: ${selectedNumber}`);
+
+        if (number == selectedNumber) {
+            return selectedFlexDirective + flexDirectives;
+        } else {
+            return flexDirectives;
+        }
+    }
 
     return (
         <nav>
@@ -39,8 +52,8 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
                         <ul className="m-8 flex gap-4">
                             {pageNumbers.map(number => (
                                 <li key={number} className="">
-                                    <button 
-                                        className="hover:bg-accent-light-500 p-4 rounded-lg"
+                                    <button
+                                        className={getButtonClassName(number)}
                                         onClick={() => setNumberAndPaginage(number)}>
                                         {number}
                                     </button>
